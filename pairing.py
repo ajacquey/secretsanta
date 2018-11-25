@@ -5,18 +5,18 @@
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 3 of the License, or
 #    (at your option) any later version.
-#    
+#
 #    secretsanta is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
-#    
+#
 #    You should have received a copy of the GNU General Public License
 #    along with secretsanta.  If not, see <http://www.gnu.org/licenses/>.
 
 """A 'Secret Santa' pairing script. Based on a list of names, email addresses
-    and room numbers, it generates pairs such that a person won't have to buy 
-    a present for themselves, their family members, or the person who has to 
+    and room numbers, it generates pairs such that a person won't have to buy
+    a present for themselves, their family members, or the person who has to
     buy a present for them.
     The result is stored as a csv file.
     """
@@ -79,13 +79,13 @@ def main():
             for roommate in roommates:
                 # If A1 -> B1, then NOT A2 -> B2
                 # i.e. check if recepient of ind is not from same room as recipient of roommate
-                if givers_list[rand_vec[ind]][2] == givers_list[rand_vec[roommate]][2]: 
+                if givers_list[rand_vec[ind]][2] == givers_list[rand_vec[roommate]][2]:
                     conditions_met = False
                     break
     write_file(givers_list, rand_vec) # write csv file with pairs
-    for ind in range(N): # print in Terminal
-        print givers_list[ind][1], "(", givers_list[ind][2], ") to", \
-           givers_list[rand_vec[ind]][1], "(", givers_list[rand_vec[ind]][2], ")"
+    # for ind in range(N): # print in Terminal
+    #     print givers_list[ind][1], "(", givers_list[ind][2], ") to", \
+    #        givers_list[rand_vec[ind]][1], "(", givers_list[rand_vec[ind]][2], ")"
     print "Number of iterations needed: ", iteration # Print number of iterations
 
 """ This is the standard boilerplate that calls the main() function.

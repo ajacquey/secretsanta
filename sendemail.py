@@ -14,8 +14,8 @@
 #    You should have received a copy of the GNU General Public License
 #    along with secretsanta.  If not, see <http://www.gnu.org/licenses/>.
 
-"""A 'Secret Santa' emailing application. It reads a csv file containing 
-    names, room numbers and email addresses from both 'givers' and 'receivers', 
+"""A 'Secret Santa' emailing application. It reads a csv file containing
+    names, room numbers and email addresses from both 'givers' and 'receivers',
     as paired by the pairing.py script.
     Remember to remove your email password before sharing!
     """
@@ -28,29 +28,32 @@ import smtplib
     """
 def send_email(pair_list):
     for row in pair_list:
-        from_addr = 'Secret Santa <johnsmith@hotmail.com>'
+        from_addr = 'Secret Santa <secretsantasarzeau2018@gmail.com>'
         to_addr  = row[2]
         msg = "\r\n".join([
             "From: " + from_addr,
             "To: " + to_addr,
-            "Subject: Secret Santa",
+            "Subject: Secret Santa Nouvel An 2018",
             "",
-            "Dear " + row[0][1:] + " (room " + row[1] + ")",
+            "Pssst " + row[0][1:] + "!"
             "",
-            "Thanks for participating in the Secret Santa!",
+            "Tu peux garder un secret?",
             "",
-            "Please find a present for " + row[3] + " (room " + row[4] + ").",
+            "Cette annee, tu seras le pere Noel de " + row[3] + ".",
             "",
-            "Please reply to this email if you have any questions or issues.",
+            "Mais n'oublie pas que le budget max est de 20 euros.",
             "",
-            "See you then!",
+            "Va, petit elfe, va preparer ton cadeau et amene le a Sarzeau!",
             "",
-            "Santa"
+            "",
+            "Ho ho ho,",
+            "",
+            "le pere Noel"
             ])
-        username = 'johnsmith@hotmail.com'
-        password = 'xxxxxxxx'
-        server = smtplib.SMTP('smtp-mail.outlook.com',587) # if Hotmail/Microsoft Outlook
-        #server = smtplib.SMTP('smtp.gmail.com:587') # if gmail
+        username = 'secretsantasarzeau2018@gmail.com'
+        password = 'xxxxx'
+        # server = smtplib.SMTP('smtp-mail.outlook.com',587) # if Hotmail/Microsoft Outlook
+        server = smtplib.SMTP('smtp.gmail.com:587') # if gmail
         server.ehlo()
         server.starttls()
         server.ehlo()
